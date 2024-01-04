@@ -1,0 +1,133 @@
+body {
+    text-align: center;
+    font-family: 'Boby Regular 400', sans-serif;
+    vertical-align: middle;
+
+}
+
+header {
+    text-transform: uppercase;
+    font-size: large;
+}
+
+p {
+    margin: 5px;
+    font-size: 18px;
+}
+
+label{
+    font-size: 18px;
+}
+
+.fieldSampleQuestion {
+    margin: 20px;
+}
+
+.singleObjectQuestion {
+    margin-top: 5px;
+    width: auto;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1mm solid grey;
+}
+
+
+.singleMainQuestion {
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+}
+
+.singleMainQuestion p {
+    margin-right: 10px;
+}
+
+.singleMainQuestion input {
+    margin-right: 10px;
+}
+
+.singleMainQuestion select {
+    margin-right: 10px;
+}
+
+
+.typeQuestion {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.questionsField {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.singleAnswerQuestion {
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+
+}
+.singleAnswerQuestion select{
+    margin-left: 5px;
+}
+
+.testAnswers {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input{
+  padding:2px;
+  border: 0;
+  box-shadow:0 0 20px 6px rgba(0,0,0,0.06);
+    font-size: 16px;
+}
+
+select{
+  padding:1px;
+  border: 0;
+  box-shadow:0 0 20px 6px rgba(0,0,0,0.06);
+    font-size: 14px;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+a {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+a:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Головна сторінка</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/416/416204.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'main/css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename = 'main/js/script.js') }}"></script>
+
+</head>
+<body id="body" style='background-image: url("{{ url_for('static', filename = 'main/img/bg.jpg') }}")'>
+<header>
+    <h3>Генератор екзамінаційних білетів</h3>
+    <a href="\help" target="_blank">Інструкція з використання сервісу</a>
+</header>
+<main>
+    <div id="docSettings" style=" border: solid; padding: 5px; width: 800px; margin: auto">
+        <h3>Налаштування документу</h3>
+        <p>Орієнтація документу</p>
+        <div style="display: flex; align-items: center;justify-content: center;align-content: center;flex-direction: row;">
+            <select id="docOrientation" onchange="orientationEditor()">
+                <option value="default">Оберіть орієнтацію</option>
+                <option value="vertical">Вертикально</option>
+                <option value="horizontal">Горизонтально</option>
+            </select>
+            <img id="verticalIcon" style="display: none" width="50px" height="50px"
+                 src="{{ url_for('static', filename = 'main/img/a4_vertical.png') }}" alt="vertical">
+            <img id="horizontalIcon" style="display: none" width="50px" height="50px"
+                 src="{{ url_for('static', filename = 'main/img/a4_horizontal.png') }}" alt="horizontal">
+        </div>
+        <div id="biletEditor"
+             style="width: 300px; height: 450px; border: solid; display: none; margin-top: 10px; padding: 15px">
+            <p> Міністерство освіти і науки, молоді та спорту України</p>
+            <p> Ізмаїльський державний гуманітарний університет</p>
+            <div style="margin: 10px; text-align: left">
+                <div style="margin: 3px">
+                    <label for="osvitniyStypin">Освітній ступінь</label>
+                    <input type="text" name="" id="osvitniyStypin">
+                </div>
+                <div style="margin: 3px">
+                    <label for="specialnost">Спеціальність</label>
+                    <input type="text" name="" id="specialnost">
+                </div>
+                <div style="margin: 3px">
+                    <label for="specializacia">Предметна спеціалізація</label>
+                    <input type="text" name="" id="specializacia">
+                </div>
+                <div style="margin: 3px">
+                    <label for="semestr">Семестр</label>
+                    <input type="text" name="" id="semestr">
+                </div>
+                <div style="margin: 3px">
+                    <label for="disciplina">Навчальна дисципліна</label>
+                    <input type="text" name="" id="disciplina">
+                </div>
+            </div>
+            <p>ЕКЗАМЕНАЦІЙНИЙ БІЛЕТ №</p>
+            <p>Кількість питань в білеті</p>
+            <input type="number" id="numberQuestionBilet" placeholder="Кількість питань" min="0"
+                   onchange="editTemplateQuestionEditor()">
+            <div id="questionFieldDocumentEditor" style=" margin: auto; width: 250px; height: 230px;overflow: scroll;">
+
+            </div>
+            <div style="margin: 10px; text-align: left">
+                <div style="margin: 3px">
+                    <label for="kafedra">Затверджено на засіданні кафедри</label>
+                    <input type="text" name="" id="kafedra">
+                </div>
+                <p>Протокол № <input style="width: 70px" type="number" id="numberProtokol" placeholder="Номер"> від «<input style="width: 70px" type="number" id="dateNumber" placeholder="Число">»
+                    <input style="width: 70px" type="text" id="month" placeholder="Місяць"> <input style="width: 70px"
+                                                                                                   type="number"
+                                                                                                   id="year"
+                                                                                                   placeholder="Рік"> р.
+                </p>
+                <p>в.о. зав. кафедри ________ <input type="text" name="" id="persKafedra"></p>
+                <p>Екзаменатор ________ <input type="text" name="" id="examinator"></p>
+            </div>
+
+        </div>
+    </div>
+    <div id="questionSettings"
+         style=" border: solid; padding: 5px; width: 800px;margin-top: 5px; margin-left: auto;margin-right: auto">
+        <h3>Редактор питань</h3>
+        <div id="openQuestion"
+             style=" border: solid; padding: 5px; margin-top: 5px; margin-left: auto;margin-right: auto">
+            <p>Поле відкритих питань</p>
+
+            <div id="fieldOpenQuestion">
+                <textarea style="font-family: 'Boby Regular 400', sans-serif; font-size: 16px" name="" id="OpenQuestions" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+        <div id="testQuestion"
+             style="border: solid; padding: 5px; margin-top: 5px; margin-left: auto;margin-right: auto">
+            <p>Поле тестових питань</p>
+            <input type="number" name="" id="numberTestQuestion" min="0" placeholder="Кількість питань"
+                   onchange="testQuestionGenerator()">
+            <div id="fieldTestQuestion">
+
+
+            </div>
+        </div>
+    </div>
+</main>
+<footer style="margin: 15px">
+    <input type="number" id="numberBilet" placeholder="Кількість білетів">
+    <input type="text" id="nameDocumentGen" placeholder="Назва документу">
+    <button onclick="generateBilets()">Згенерувати білети</button>
+</footer>
+
+
+
+</body>
+</html>
+
+
+

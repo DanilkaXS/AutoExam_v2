@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Інструкція з використання</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/416/416204.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'main/css/styles.css') }}">
+</head>
+<body id="body" style='background-image: url("{{ url_for('static', filename = 'main/img/bg.jpg') }}")'>
+<h3>ІНСТРУКЦІЯ ПО ЕКСПЛУАТАЦІЇ ГЕНЕРАТОРА</h3>
+<p>КРОК 1</p>
+<p>Виберіть орієнтацію документа з білетами зі відповідного списку.</p>
+<img src="{{ url_for('static', filename = 'main/img/STEP1.png') }}" alt="STEP1">
+<p>КРОК 2</p>
+<p>Заповніть усі необхідні поля в блоці налаштування документа.</p>
+<img src="{{ url_for('static', filename = 'main/img/STEP2.png') }}" alt="STEP2">
+<p>КРОК 3</p>
+<p>Додайте питання до блоку відкритих або тестових питань залежно від ваших цілей.</p>
+<img  src="{{ url_for('static', filename = 'main/img/STEP3.png') }}" alt="STEP3">
+<p>КРОК 4</p>
+<p>Встановіть кількість білетів та назву і натисніть кнопку згенерувати.</p>
+<img  src="{{ url_for('static', filename = 'main/img/STEP4.png') }}" alt="STEP4">
+<p>КРОК 5</p>
+<p>Через деякий час з'явиться кнопка яка переведе вас до згенерованого файлу.</p>
+<img  src="{{ url_for('static', filename = 'main/img/STEP5.png') }}" alt="STEP5">
+
+</body>
+</html>
