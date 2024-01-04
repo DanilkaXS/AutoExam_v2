@@ -27,16 +27,6 @@ def post_req():
     ################### CREATING DOCUMENT ################################
     document = Document()
 
-    # data = {'id': '', 'document': {'nameDocument': 'TEST', 'orientation': 'horizontal',
-    #                                'head': 'Міністерство освіти і науки, молоді та спорту України\nІзмаїльський державний гуманітарний університет',
-    #                                'osvitniyStypin': '1', 'specialnost': '2', 'specializacia': '3', 'semestr': '4',
-    #                                'disciplina': '5', 'numberQuestionBilet': '1',
-    #                                'questionType': {'templateQuestionType1': '1'}, 'kafedra': '6',
-    #                                'protokol': ['7', '8', '9', '10'], 'persKafedra': '11', 'examinator': '12',
-    #                                'numberBilet': '13'}, 'questions': {
-    #     'openQuestions': {'numberOpenQuestions': '1', 'questionsField': {'openQuestion1': {'id': 1, 'text': '12'}}},
-    #     'testQuestions': {'numberTestQuestions': '', 'questionsField': {}}}}
-
     ################### ORIENTATION SETINGS ################################
     current_section = document.sections[-1]
     if data["document"]["orientation"] == 'horizontal':
@@ -52,24 +42,41 @@ def post_req():
             run.font.size = Pt(font_size)
         paragraph.alignment = aligment
 
+    
+
     header_paragraph = current_section.header
+
+    h = header_paragraph.add_paragraph(f"ЗАТВЕРДЖЕНО")
+    change_header_paragraph(h, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Наказ Міністерства освіти і науки,")
+    change_header_paragraph(h, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"молоді та спорту України")
+    change_header_paragraph(h, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"від «29» березня 2012 № 384")
+    change_header_paragraph(h, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Форма № Н-5.05")
+    change_header_paragraph(h, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
+         
+
+
+
     header_main = header_paragraph.add_paragraph(data["document"]["head"])
     change_header_paragraph(header_main, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.CENTER)
 
-    h = header_paragraph.add_paragraph(f"Освітній ступінь «{data['document']['osvitniyStypin']}»")
-    change_header_paragraph(h, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Освітній рівень: «{data['document']['osvitniyStypin']}»")
+    change_header_paragraph(h, "Times New Roman", 11, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
-    h = header_paragraph.add_paragraph(f"Спеціальність {data['document']['specialnost']}")
-    change_header_paragraph(h, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Спеціальність: {data['document']['specialnost']}\t\t\tПредметна спеціалізація: {data['document']['specializacia']}")
+    change_header_paragraph(h, "Times New Roman", 11, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
-    h = header_paragraph.add_paragraph(f"Предметна спеціалізація {data['document']['specializacia']}")
-    change_header_paragraph(h, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Освітня програма: «{data['document']['osvitnyaPrograma']}»")
+    change_header_paragraph(h, "Times New Roman", 11, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
-    h = header_paragraph.add_paragraph(f"Семестр {data['document']['semestr']}")
-    change_header_paragraph(h, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Семестр: {data['document']['semestr']}\t\t\t\t\t\tГрупа {data['document']['group']}")
+    change_header_paragraph(h, "Times New Roman", 11, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
-    h = header_paragraph.add_paragraph(f"Навчальна дисципліна {data['document']['disciplina']}")
-    change_header_paragraph(h, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    h = header_paragraph.add_paragraph(f"Навчальна дисципліна: {data['document']['disciplina']}")
+    change_header_paragraph(h, "Times New Roman", 11, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
     change_header_paragraph(header_main, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.CENTER)
 
@@ -78,22 +85,22 @@ def post_req():
     footer_paragraphs = current_section.footer
     footer_paragraph = footer_paragraphs.add_paragraph(
         f"Затверджено на засіданні кафедри {data['document']['kafedra']}")
-    change_header_paragraph(footer_paragraph, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    change_header_paragraph(footer_paragraph, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
     footer_paragraph = footer_paragraphs.add_paragraph(
         f"Протокол  № {data['document']['protokol'][0]} від «{data['document']['protokol'][1]}» "
         f"{data['document']['protokol'][2]} {data['document']['protokol'][3]} р.")
-    change_header_paragraph(footer_paragraph, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    change_header_paragraph(footer_paragraph, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
     footer_paragraph = footer_paragraphs.add_paragraph(
         f"в.о. зав. кафедри   _______________________________________   {data['document']['persKafedra']}")
-    change_header_paragraph(footer_paragraph, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    change_header_paragraph(footer_paragraph, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
     footer_paragraph = footer_paragraphs.add_paragraph(
         f"Екзаменатор         _______________________________________   {data['document']['examinator']}")
-    change_header_paragraph(footer_paragraph, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
+    change_header_paragraph(footer_paragraph, "Times New Roman", 10, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
     ################### GENERATOR ################################
 
     for i in range(1, int(data['document']['numberBilet']) + 1):
-        p = document.add_paragraph(f'ЕКЗАМЕНАЦІЙНИЙ БІЛЕТ  № {i}')
+        p = document.add_paragraph(f'ЕКЗАМЕНАЦІЙНИЙ БІЛЕТ  № ')
         change_header_paragraph(p, "Times New Roman", 16, WD_PARAGRAPH_ALIGNMENT.CENTER)
         p.runs[0].bold = True
 

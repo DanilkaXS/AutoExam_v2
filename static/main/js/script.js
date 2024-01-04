@@ -132,6 +132,8 @@ function generateBilets() {
             head: "Міністерство освіти і науки, молоді та спорту України\n" +
                 "Ізмаїльський державний гуманітарний університет",
             osvitniyStypin: $("#osvitniyStypin").val(),
+            osvitnyaPrograma: $("#osvitnyaPrograma").val(),
+            group: $("#group").val(),
             specialnost: $("#specialnost").val(),
             specializacia: $("#specializacia").val(),
             semestr: $("#semestr").val(),
