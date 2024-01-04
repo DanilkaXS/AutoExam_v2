@@ -146,7 +146,7 @@ function generateBilets() {
         },
         questions: {
             openQuestions: {
-                numberOpenQuestions: $("#numberOpenQuestion").val(),
+                numberOpenQuestions: numberOpenQuestion,
                 questionsField: {}
             },
             testQuestions: {
