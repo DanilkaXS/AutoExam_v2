@@ -110,7 +110,7 @@ def post_req():
                 random_number_question = random.randint(1, int(data['questions']['openQuestions']["numberOpenQuestions"]))
                 question = data['questions']['openQuestions']["questionsField"][f"openQuestion{random_number_question}"]["text"]
                 p = document.add_paragraph(f'{j}) {question}')
-                change_header_paragraph(p, "Times New Roman", 18, WD_PARAGRAPH_ALIGNMENT.LEFT)
+                change_header_paragraph(p, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
 
             else:
                 random_number_question = random.randint(1, int(data['questions']['testQuestions']["numberTestQuestions"]))
@@ -118,7 +118,7 @@ def post_req():
                 number_answers = data['questions']['testQuestions']["questionsField"][f"testQuestion{random_number_question}"]["numberAnswerQuestion"]
                 answers = data['questions']['testQuestions']["questionsField"][f"testQuestion{random_number_question}"]["answers"]
                 p = document.add_paragraph(f'{j}) {question}')
-                change_header_paragraph(p, "Times New Roman", 18, WD_PARAGRAPH_ALIGNMENT.LEFT)
+                change_header_paragraph(p, "Times New Roman", 14, WD_PARAGRAPH_ALIGNMENT.LEFT)
                 p = document.add_paragraph(f'Відповіді ')
                 for k in range(1,int(number_answers) + 1):
                     answer = answers[f"answer{k}"]["text"]
